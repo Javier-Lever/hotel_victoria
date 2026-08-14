@@ -1,0 +1,457 @@
+/* ==========================================
+   1. VARIABLES GLOBALES Y RESET
+   ========================================== */
+:root {
+  --primary-color: #9E8858;    /* Dorado Beige (Logo y elegancia) */
+  --accent-color: #E06316;     /* Naranja / Terracotta (Fachada y destacados) */
+  --accent-hover: #C2500C;     /* Naranja más intenso al pasar el cursor */
+  --dark-wood: #2D1E16;        /* Tono café/madera profundo para el footer (adiós al negro #020617) */
+  --whatsapp-color: #E06316;   /* Ahora WhatsApp usa tu color de marca (Naranja) */
+  --whatsapp-hover: #C2500C;
+  --bg-light: #FAF8F5;         /* Fondo crema muy suave y cálido */
+  --text-dark: #2B2623;        /* Texto oscuro cálido */
+  --text-muted: #6C635B;       /* Texto secundario */
+  --white: #FFFFFF;
+  --radius: 12px;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   2. BOTÓN FLOTANTE DE WHATSAPP
+   ========================================== */
+.btn-whatsapp-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--whatsapp-color);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 20px rgba(224, 99, 22, 0.35); /* Sombra naranja adaptada */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-whatsapp-flotante:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   3. HEADER Y NAVEGACIÓN
+   ========================================== */
+.top-header {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+.btn-nav {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   4. HERO SECTION (OPCIÓN B)
+   ========================================== */
+.hero-split {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.badge-location {
+  display: inline-block;
+  background-color: #e2e8f0;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.hero-text-container h1 {
+  font-size: 2.1rem;
+  color: var(--primary-color);
+  line-height: 1.25;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.hero-text-container p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+/* Contenedor de la Imagen del Hero */
+.hero-image-container {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Badges Flotantes sobre la foto */
+.floating-badge {
+  position: absolute;
+  background-color: rgba(15, 23, 42, 0.88);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.badge-power {
+  top: 15px;
+  left: 15px;
+}
+
+.badge-food {
+  bottom: 15px;
+  right: 15px;
+}
+
+/* ==========================================
+   5. BOTONES GENERALES
+   ========================================== */
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  transition: opacity 0.2s ease;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+   6. SECCIONES GENERALES
+   ========================================== */
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  position: relative;
+  font-weight: 700;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 45px;
+  height: 4px;
+  background-color: var(--accent-color);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Sección Sobre El Hotel */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.about-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ==========================================
+   7. HABITACIONES (GRID)
+   ========================================== */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.room-card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+}
+
+.room-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.room-info {
+  padding: 20px;
+}
+
+.room-info h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.room-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   8. SECCIÓN RESTAURANTE
+   ========================================== */
+.restaurant-section {
+  background-color: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.restaurant-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sub-tag {
+  color: var(--accent-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.restaurant-text h2 {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.restaurant-text h2::after {
+  margin: 8px 0 0 0;
+}
+
+.schedule-box {
+  margin-top: 20px;
+  background-color: var(--white);
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   9. SERVICIOS Y POLÍTICAS
+   ========================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.service-item {
+  background-color: var(--white);
+  padding: 22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.service-item .icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.service-item h3 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+
+.service-item p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   10. BANNER CTA Y FOOTER
+   ========================================== */
+.cta-banner {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-banner h2 {
+  color: var(--white);
+}
+
+.cta-banner h2::after {
+  background-color: var(--accent-color);
+}
+
+.cta-banner p {
+  color: var(--bg-light);
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+}
+
+.footer {
+  background-color: var(--dark-wood);
+  color: #D3C2B5;
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   11. ADAPTACIÓN RESPONSIVE (PC / TABLETS)
+   ========================================== */
+@media (min-width: 768px) {
+  .hero-split {
+    grid-template-columns: 1fr 1fr;
+    padding: 60px 20px;
+  }
+
+  .hero-text-container h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-img {
+    height: 380px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-img {
+    height: 300px;
+  }
+
+  .rooms-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .restaurant-img {
+    height: 320px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
